@@ -17,6 +17,15 @@ class Console
     @win = Curses::Window.new(Curses.lines, Curses.cols, 0, 0)
   end
 
+  def set_background_color
+    win.attron(Curses.color_pair(1))
+
+    win.maxy.times do |line|
+      win.setpos(line, 0)
+      win << ' ' * win.maxx
+    end
+  end
+
   def quit_console
     win.close
   end

@@ -17,6 +17,7 @@ class Clock
 
   def exec
     console.make_window
+    console.set_background_color
     console.display
     console.quit_console
   end
