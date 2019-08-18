@@ -5,11 +5,19 @@ require_relative 'console'
 class Clock
   class << self
     def start
-      new
+      new.exec
     end
   end
 
+  attr_reader :console
+
   def initialize
-    Console.init
+    @console = Console.init
+  end
+
+  def exec
+    console.make_window
+    console.display
+    console.quit_console
   end
 end
