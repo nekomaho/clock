@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-class Timer
+class Clock
   class << self
     def start
     end
