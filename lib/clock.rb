@@ -38,8 +38,11 @@ class Clock
   def timer_loop
     loop do
       sleep(0.5)
-      time_string = Time.now.to_s
-      console.set_str(console.width/2 - time_string.length, console.height/2, time_string)
+      time = Time.now
+      yyyymmdd_str = time.strftime('%Y/%m/%d')
+      time_str = time.strftime('%T')
+      console.set_str(console.width/2 - yyyymmdd_str.length/2, console.height/2, yyyymmdd_str)
+      console.set_str(console.width/2 - time_str.length/2, console.height/2+1, time_str)
       console.display
     end
   end
