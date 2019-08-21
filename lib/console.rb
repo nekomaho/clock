@@ -6,6 +6,7 @@ class Console
     def init
       Curses.init_screen
       Curses.start_color
+      Curses.noecho
       Curses.init_pair(1, Curses::COLOR_WHITE, Curses::COLOR_BLUE)
       new
     end
