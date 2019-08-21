@@ -19,6 +19,17 @@ class Clock
     console.make_window
     console.set_background_color
     console.display
+
+    t = Thread.new &method(:key_loop)
+    t.join
+
     console.quit_console
+  end
+
+  def key_loop
+    loop do
+      string = console.get_line
+      break if string == 'quit'
+    end
   end
 end

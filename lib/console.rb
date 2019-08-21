@@ -33,4 +33,8 @@ class Console
   def display
     win.refresh
   end
+
+  def get_line
+    win.getstr
+  end
 end
