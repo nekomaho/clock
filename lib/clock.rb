@@ -20,8 +20,8 @@ class Clock
     console.set_background_color
     console.display
 
-    t = Thread.new &method(:key_loop)
-    t.join
+    key_thread = Thread.new &method(:key_loop)
+    key_thread.join
 
     console.quit_console
   end
