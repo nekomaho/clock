@@ -12,10 +12,13 @@ class Console
     end
   end
 
-  attr_reader :win
+  attr_reader :win, :width, :height
 
   def make_window
-    @win = Curses::Window.new(Curses.lines, Curses.cols, 0, 0)
+    @win = Curses::Window.new(Curses.lines, Curses.cols, 0, 0).tap do |win|
+      @width = win.maxx
+      @height = win.maxy
+    end
   end
 
   def set_background_color
@@ -25,6 +28,11 @@ class Console
       win.setpos(line, 0)
       win << ' ' * win.maxx
     end
+  end
+
+  def set_str(x, y, str)
+    win.setpos(y, x)
+    win.addstr(str)
   end
 
   def quit_console
