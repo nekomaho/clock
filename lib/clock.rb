@@ -41,7 +41,9 @@ class Clock
       time = Time.now
       yyyymmdd_str = time.strftime('%Y %m %d %T')
       console.set_background_color
-      console.set_str_as_ascii_art(console.width/2 - (yyyymmdd_str.length * 4)/2, console.height/2, yyyymmdd_str)
+      console.set_str_as_ascii_art(console.width/2 - (yyyymmdd_str.length * Console::CHAR_PADDING)/2,
+                                   console.height/2 - (Console::CHAR_HEIGHT/2),
+                                   yyyymmdd_str)
       console.display
     end
   end
