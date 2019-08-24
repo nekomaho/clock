@@ -51,6 +51,7 @@ class Console
       end
       x = x + CHAR_PADDING
     end
+    win.setpos(0, 0)
   end
 
   def set_str(x, y, str)
