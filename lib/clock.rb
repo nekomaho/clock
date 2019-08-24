@@ -39,10 +39,10 @@ class Clock
     loop do
       sleep(0.5)
       time = Time.now
-      yyyymmdd_str = time.strftime('%Y/%m/%d')
+      yyyymmdd_str = time.strftime('%Y %m %d %T')
       time_str = time.strftime('%T')
-      console.set_str(console.width/2 - yyyymmdd_str.length/2, console.height/2, yyyymmdd_str)
-      console.set_str(console.width/2 - time_str.length/2, console.height/2+1, time_str)
+      console.set_background_color
+      console.set_str_as_ascii_art(console.width/2 - (yyyymmdd_str.length * 4)/2, console.height/2, yyyymmdd_str)
       console.display
     end
   end
