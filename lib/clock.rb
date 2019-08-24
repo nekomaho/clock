@@ -37,10 +37,9 @@ class Clock
 
   def timer_loop
     loop do
-      sleep(0.5)
+      sleep(0.2)
       time = Time.now
       yyyymmdd_str = time.strftime('%Y %m %d %T')
-      time_str = time.strftime('%T')
       console.set_background_color
       console.set_str_as_ascii_art(console.width/2 - (yyyymmdd_str.length * 4)/2, console.height/2, yyyymmdd_str)
       console.display
